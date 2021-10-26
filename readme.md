@@ -1,4 +1,4 @@
-# Azure Blob (upload file using Drag and Drop - Angular)
+# Azure Blob file Upload (JavaScript v12 SDK - @azure/storage-blob)
 This is a sample project for uploading (images, videos etc ) using JavaScript v12 SDK (@azure/storage-blob) in Node.js  and get a SAS url to access the files.
 
 We have used Angular 12 for the for frontend (Drag and Drop) and expresjs to expose rest apis to upload file and get SAS token attached URLs.
