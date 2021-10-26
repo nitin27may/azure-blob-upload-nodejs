@@ -27,7 +27,8 @@ app.use(
 );
 console.log("account name", process.env.AZURE_STORAGE_ACCOUNT_NAME);
 // Use Api routes in the App
-let fileRoutes = require("./controllers/file-upload.controller");
+//let fileRoutes = require("./controllers/file-upload.controller");
+let fileRoutes = require("./controllers/blob-upload.controller");
 app.use("/file", fileRoutes);
 
 let port = process.env.PORT || config.expressPort;

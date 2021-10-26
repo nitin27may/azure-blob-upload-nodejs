@@ -10,6 +10,9 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+
+
+
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -56,10 +59,19 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
           }
         },
         "serve": {
+          "defaultConfiguration": "development",
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "frontend:build"
@@ -67,7 +79,10 @@
           "configurations": {
             "production": {
               "browserTarget": "frontend:build:production"
-            }
+            },
+            "development": {
+              "browserTarget": "frontend:build:development"
+             }
           }
         },
         "extract-i18n": {

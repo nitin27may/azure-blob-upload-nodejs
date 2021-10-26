@@ -49,7 +49,7 @@ uploadFilesToBlob = async (directoryPath, containerName, files) => {
           config.azureStorageConfig.accountKey
         );
         blobService.createBlockBlobFromStream(
-          containerName,
+          config.azureStorageConfig.containerName,
           blobNamewithFolder,
           stream,
           streamLength,
@@ -58,12 +58,12 @@ uploadFilesToBlob = async (directoryPath, containerName, files) => {
               reject(err);
             } else {
               var token = blobService.generateSharedAccessSignature(
-                containerName,
+                config.azureStorageConfig.containerName,
                 blobNamewithFolder,
                 sharedAccessPolicy
               );
               const sasUrl = blobService.getUrl(
-                containerName,
+                config.azureStorageConfig.containerName,
                 blobNamewithFolder,
                 token
               );
@@ -72,7 +72,7 @@ uploadFilesToBlob = async (directoryPath, containerName, files) => {
                 filename: blobName,
                 originalname: file.originalname,
                 size: streamLength,
-                path: `${azureStorageConfig.containerName}/${blobNamewithFolder}`,
+                path: `${config.azureStorageConfig.containerName}/${blobNamewithFolder}`,
                 url: sasUrl,
               });
             }
@@ -151,7 +151,7 @@ const deleteImage = (req, res, next) => {
 };
 
 //router.route("/upload").post(singleFileUpload.single("file"), imageUpload);
-router.route("/upload").post(multipleFileUpload, imageUpload);
+router.route("/upload1").post(multipleFileUpload, imageUpload);
 router.route("/delete").post(deleteImage);
 
 module.exports = router;

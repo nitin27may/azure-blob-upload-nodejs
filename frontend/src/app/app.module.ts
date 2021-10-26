@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DragDropDirective } from './drag-drop.directive';
 import { UploadFileComponent } from './upload-files/upload-files.component';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
 
 @NgModule({
-  declarations: [AppComponent, UploadFileComponent, DragDropDirective],
+  declarations: [AppComponent, UploadFileComponent, DragDropDirective, InlineEditComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
