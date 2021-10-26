@@ -1,11 +1,8 @@
 import {
   Component,
   Output,
-  ViewChild,
-  ElementRef,
   EventEmitter,
 } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload-files',
@@ -29,5 +26,10 @@ export class UploadFileComponent {
 
   uploadDroppedFile() {
     this.onfileUpload.emit(this.files);
+  }
+  saveFileName(file: any, newFileName: any, index: number) {
+    this.files[index].name = newFileName;
+    console.log(file);
+    console.log(newFileName);
   }
 }

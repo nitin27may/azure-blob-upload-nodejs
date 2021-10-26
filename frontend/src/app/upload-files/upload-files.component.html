@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-lg-12 uploadfilecontainer" (click)="fileInput.click()" appDragDrop (FileDropped)="uploadFile($event)">
-    <input hidden type="file" name="file" #fileInput (change)="uploadFile($event.target.files)" />
+    <input hidden type="file" name="file" #fileInput (change)="uploadFile($event.target.files)" multiple="multiple"/>
     <div class="files-list" *ngFor="let file of files; let i = index">
-      <p>{{ file.name }}</p>
+      <!-- <p>{{ file.name }}</p> -->
+      <p><inline-editable [value]="file.name"
+        (valueChange)="saveFileName(file, $event, i )"></inline-editable></p>
       <button class="delete-file" (click)="deleteAttachment(i)">
         <img src="../../assets/Recycle_Bin_Full.png" />
       </button>
