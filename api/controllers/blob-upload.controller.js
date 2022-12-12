@@ -12,13 +12,14 @@ const {
   BlobSASPermissions,
   AccountSASPermissions,
 } = require("@azure/storage-blob")
-const getStream = require("into-stream")
+
+import * as getStream from "into-stream";
 const uuid = require("uuid")
 
 const config = require("../config.js")
 
 const { setLogLevel } = require("@azure/logger")
-// setLogLevel("info")
+setLogLevel("info")
 
 // Use StorageSharedKeyCredential with storage account and account key
 
@@ -126,5 +127,6 @@ const imageUpload = async (req, res, next) => {
 
 const multipleFileUpload = multer({ storage: inMemoryStorage }).array("file", 5)
 
-router.route("/upload").post(multipleFileUpload, imageUpload)
+router.route("/upload").post(multipleFileUpload, imageUpload);
+
 module.exports = router
