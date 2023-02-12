@@ -40,7 +40,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.7.0",
-    "nodemon": "^2.0.14",
+    "nodemon": "^2.0.20",
     "protractor": "~7.0.0",
     "ts-node": "~10.3.0",
     "tslint": "~6.1.0",
