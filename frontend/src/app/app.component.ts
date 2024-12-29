@@ -1,39 +1,14 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RouterOutlet } from '@angular/router';
+import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet,HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  loader: boolean;
-  imageDetails: any;
-  formData: FormData;
-  constructor(private httpClient: HttpClient) {
-    this.loader = false;
-  }
-
-  uploadFile(event: any): void {
-    this.formData = new FormData();
-    for (const fileDetail of event) {
-      this.formData.append('file', fileDetail.file);
-    }
-    this.uploadtoServer();
-  }
-
-  uploadtoServer(): void {
-    this.formData.append('containerName', 'images');
-    this.formData.append('folderpath', 'profile');
-    this.loader = true;
-    this.httpClient.post('/file/upload', this.formData).subscribe(
-      (data: any) => {
-        this.imageDetails = data;
-        this.loader = false;
-      },
-      (error) => {
-        this.loader = false;
-      }
-    );
-  }
+  title = 'frontend';
 }

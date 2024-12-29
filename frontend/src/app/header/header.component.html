@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>Azure Storage App</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/upload">Upload</button>
+  <mat-slide-toggle (change)="toggleTheme($event.checked)">
+    Dark Mode
+  </mat-slide-toggle>
+</mat-toolbar>

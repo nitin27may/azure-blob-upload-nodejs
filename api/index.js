@@ -1,12 +1,15 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config();
-// Import express
-let express = require("express");
-// Import Body parser
-let bodyParser = require("body-parser");
-// Initialise the app
-let app = express();
 const config = require("./config.js");
-let router = require("express").Router();
+const router = require("express").Router();
+
+// Initialise the app
+const app = express();
+
+// Enable CORS
+app.use(cors());
 
 // Configure bodyparser to handle post requests
 app.use(
@@ -16,6 +19,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
+// Base API route
 app.use(
   "/api",
   router.get("/", function (req, res) {
@@ -25,14 +29,16 @@ app.use(
     });
   })
 );
-console.log("account name", process.env.AZURE_STORAGE_ACCOUNT_NAME);
-// Use Api routes in the App
-//let fileRoutes = require("./controllers/file-upload.controller");
-let fileRoutes = require("./controllers/blob-upload.controller");
-app.use("/file", fileRoutes);
 
-let port = process.env.PORT || config.expressPort;
+console.log("account name", process.env.AZURE_STORAGE_ACCOUNT_NAME);
+
+// Use API routes in the App
+const fileRoutes = require("./controllers/blob-upload.controller");
+app.use("/api/blob", fileRoutes);
+
+const port = process.env.PORT || config.expressPort;
+
 // Launch app to listen to specified port
 app.listen(port, function () {
-  console.log("Running Azure File uplaod API on port " + port);
+  console.log("Running Azure File upload API on port " + port);
 });

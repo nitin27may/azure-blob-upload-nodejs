@@ -1,0 +1,56 @@
+<h1 mat-dialog-title class="dialog-title">Blob Details</h1>
+<div mat-dialog-content class="dialog-content">
+  <!-- File Details -->
+  <div class="details-section">
+    <p><strong>Name:</strong> {{ data.name }}</p>
+    <p><strong>Created On:</strong> {{ data.createdOn | date: 'short' }}</p>
+
+    <p *ngIf="data.sasUri">
+      <strong>SAS URL:</strong>
+      <a href="{{ data.sasUri }}" target="_blank">Open in New Tab</a>
+    </p>
+  </div>
+
+  <!-- Text Content -->
+  <div class="preview-section" *ngIf="isTextContent(data.contentType)">
+    <p><strong>Content:</strong></p>
+    <pre class="text-preview">
+      <code>
+        {{ fetchBlobContent(data.sasUri) }}
+      </code>
+    </pre>
+  </div>
+
+  <!-- Image Content -->
+  <div class="preview-section" *ngIf="isImageContent(data.contentType)">
+    <p><strong>Preview:</strong></p>
+    <img [src]="data.sasUri" alt="{{ data.name }}" class="preview-image" />
+  </div>
+
+  <!-- Video Content -->
+  <div class="preview-section" *ngIf="isVideoContent(data.contentType)">
+    <p><strong>Preview:</strong></p>
+    <video controls class="preview-video">
+      <source [src]="data.sasUri" [type]="data.contentType" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Audio Content -->
+  <div class="preview-section" *ngIf="isAudioContent(data.contentType)">
+    <p><strong>Preview:</strong></p>
+    <audio controls class="preview-audio">
+      <source [src]="data.sasUri" [type]="data.contentType" />
+      Your browser does not support the audio tag.
+    </audio>
+  </div>
+
+  <!-- Default Fallback -->
+  <div class="fallback-section" *ngIf="!isTextContent(data.contentType) && !isImageContent(data.contentType) && !isVideoContent(data.contentType) && !isAudioContent(data.contentType)">
+    <p>Preview not available for this file type.</p>
+  </div>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button color="primary" (click)="closeDialog()">Close</button>
+</div>

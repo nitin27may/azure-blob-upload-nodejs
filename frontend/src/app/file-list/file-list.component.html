@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Document List</span>
+  <span class="spacer"></span>
+  <!-- <button mat-raised-button color="accent" routerLink="/upload">Upload Files</button> -->
+  <button mat-raised-button color="primary" routerLink="/upload">Add File</button>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card>
+    <table mat-table [dataSource]="files" class="mat-elevation-z8">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let file"> {{file.name}} </td>
+      </ng-container>
+
+      <!-- Created Date Column -->
+      <ng-container matColumnDef="createdOn">
+        <th mat-header-cell *matHeaderCellDef> Created On </th>
+        <td mat-cell *matCellDef="let file"> {{file.createdOn | date: 'short'}} </td>
+      </ng-container>
+
+      <!-- SAS URL Column -->
+      <ng-container matColumnDef="sasUrl">
+        <th mat-header-cell *matHeaderCellDef> Open SAS URL </th>
+        <td mat-cell *matCellDef="let file">
+          <a  (click)="openDetails(file)">Open</a>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+
+</div>

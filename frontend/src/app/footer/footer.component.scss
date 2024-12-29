@@ -1,0 +1,31 @@
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+// styles.scss
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,78 @@
+/* Import the prebuilt Azure-Blue theme */
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+/* Global styles */
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Default light theme background */
+  color: #000000;           /* Default light theme text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme adjustments */
+body.dark-theme {
+  background-color: #121212; /* Dark theme background */
+  color: #e0e0e0;           /* Dark theme text color */
+}
+
+/* Override specific Material Design components for dark mode */
+body.dark-theme .mat-toolbar {
+  background-color: #1e1e1e; /* Dark toolbar */
+  color: #ffffff;
+}
+
+body.dark-theme footer {
+  background-color: #1e1e1e; /* Dark footer */
+  color: #cccccc;
+  border-top-color: #444;
+}
+
+/* File list and upload styles */
+body.dark-theme .mat-list-item {
+  background-color: #1e1e1e; /* Background for file items */
+  color: #e0e0e0; /* Text color for file items */
+  border-bottom: 1px solid #444; /* Separator */
+}
+
+body.dark-theme .mat-list-item:hover {
+  background-color: #2c2c2c; /* Hover effect for file items */
+}
+
+/* Ensure smooth theme transitions */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f5f5; /* Default footer background */
+  border-top: 1px solid #ddd;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Menu styles */
+.mat-toolbar button {
+  margin-left: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.mat-toolbar .spacer {
+  flex: 1 1 auto;
+}
+
+/* Utility classes */
+.spacer {
+  flex: 1 1 auto;
+}

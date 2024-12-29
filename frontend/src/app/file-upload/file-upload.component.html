@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <span>Upload Files</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" routerLink="/">Back to List</button>
+</mat-toolbar>
+
+<div class="container">
+  <div
+    class="drag-drop-area"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+  >
+    <p>Drag and drop files here</p>
+  </div>
+
+  <mat-list>
+    <mat-list-item *ngFor="let file of files; let i = index">
+      {{file.name}}
+      <button mat-icon-button color="warn" (click)="removeFile(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <button mat-raised-button color="primary" [disabled]="files.length === 0" (click)="uploadMultipartFormData()">
+    Upload MultForm Data
+  </button>
+  <button mat-raised-button color="secondary" [disabled]="files.length === 0" (click)="UploadFileStream()">
+    Upload Files Stream
+  </button>
+  <button mat-raised-button color="secondary" [disabled]="files.length === 0" (click)="UploadFilesChunk()">
+    upload Files Chunk
+  </button>
+
+  <mat-progress-bar *ngIf="uploading" mode="determinate" [value]="progress"></mat-progress-bar>
+  <p *ngIf="uploading">Progress: {{ progress }}%</p>
+</div>

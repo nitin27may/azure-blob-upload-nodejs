@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/logger": "^1.0.3",
-    "@azure/storage-blob": "^12.11.0",
+    "@azure/logger": "1.1.4",
+    "@azure/storage-blob": "12.26.0",
     "body-parser": "1.20",
     "concurrently": "^7.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "4.18",
     "into-stream": "^7.0.0",
