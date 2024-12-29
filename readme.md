@@ -1,12 +1,21 @@
-# Azure Blob File Upload (JavaScript v12 SDK - @azure/storage-blob)
+# Azure Blob Storage Example with Expressjs and Angular (JavaScript v12 SDK - @azure/storage-blob)
 
-This is a sample project for uploading (images, videos, etc.) using the JavaScript v12 SDK (`@azure/storage-blob`) in Node.js and generating a SAS URL to access the files.
+[https://nitinksingh.com/efficient-file-management-on-azure-blob-storage-crud-operations-and-upload-strategies](https://nitinksingh.com/efficient-file-management-on-azure-blob-storage-crud-operations-and-upload-strategies)
 
-We use **Angular 19** for the frontend (with drag-and-drop functionality) and **Express.js 4.18** to expose REST APIs for file uploads and SAS token generation. The project supports multiple file upload strategies:
+## About the Repository
+This repository showcases a comprehensive example of Azure Blob Storage integration using a modern tech stack:
 
-- **Multipart Form Data**
-- **Chunked Uploads**
-- **Stream Uploads**
+- **Backend**: Expressjs - JavaScript v12 SDK (`@azure/storage-blob`) in Node.js.
+- **Frontend**: An Angular 19 project with Material Design for a sleek and user-friendly interface.
+
+It provides robust examples for handling Azure Blob Storage, including three types of upload APIs:
+
+1. **File Upload**: Upload files directly to Azure Blob Storage.
+2. **Chunk Upload**: Handle large files by uploading them in smaller chunks.
+3. **Stream Upload**: Stream data directly to Azure Blob Storage for efficient handling of larger datasets.
+
+## Features
+A complete backend and frontend project structure to show case File operations (CRUD) for Azure Storage
 
 ---
 
