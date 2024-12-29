@@ -1,4 +1,4 @@
-# Azure Blob Storage Example with Expressjs and Angular (JavaScript v12 SDK - @azure/storage-blob)
+# Azure Blob Storage Example with Expressjs and Angular 19 (JavaScript v12 SDK - @azure/storage-blob)
 
 [https://nitinksingh.com/efficient-file-management-on-azure-blob-storage-crud-operations-and-upload-strategies](https://nitinksingh.com/efficient-file-management-on-azure-blob-storage-crud-operations-and-upload-strategies)
 
